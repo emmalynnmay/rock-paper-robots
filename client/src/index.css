@@ -1,3 +1,134 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Courier New", monospace;
+
+  color: #E3FEF7;
+  background-color: #135D66;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+h1 {
+  font-size: 45pt;
+  text-align: center;
+}
+
+h2 {
+  font-size: 35pt;
+  text-align: center;
+  margin-top: 30px;
+}
+
+p {
+  font-size: 15pt;
+  text-align: center;
+}
+
+.button {
+  background-color: #161A30;
+  font-family: Courier, monospace;
+  color: #E3FEF7;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  width: 95%;
+  font-size: 17pt;
+  margin-right: 30px;
+  margin-left: 30px;
+  padding: 10px;
+}
+
+.button:hover {
+  background-color: #13141c;
+}
+
+.login-box {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 100px;
+  margin-bottom: 200px;
+}
+
+.login {
+  display: block;
+}
+
+.swap {
+  font-size: 15pt;
+  text-align: center;
+  text-decoration: underline;
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #E3FEF7;
+  font-size: 15pt;
+  font-family: "Courier New", monospace;
+}
+
+h3 {
+  text-align: center;
+  font-size: 20pt;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  margin-bottom: 20px;
+  font-size: 15pt;
+}
+
+h4 {
+  text-align: center;
+  font-size: 20pt;
+}
+
+select {
+  padding: 8px; /* Add padding inside the select box */
+  border-radius: 5px; /* Rounded corners for the select box */
+  border: 1px solid #ccc; /* Border around the select box */
+  width: 200px; /* Set the width of the select box */
+  font-size: 14px; /* Set the font size */
+  background-color: #E3FEF7; /* Set background color */
+  cursor: pointer; /* Show pointer cursor on hover */
+  margin: 10px;
+  font-family: "Courier New", monospace;
+}
+
+select option {
+  font-size: 15pt;
+  font-family: "Courier New", monospace;
+}
+
+label {
+  font-size: 15pt;
+}
+
+
+
+
+

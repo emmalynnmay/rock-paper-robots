@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useApi } from "./utils/use_api";
-import { setAuthToken } from "./store/application_slice";
+import { useApi } from "../utils/use_api.js";
+import { setAuthToken } from "../store/application_slice.js";
 import { useDispatch } from "react-redux";
 
 export const Login = () => {
@@ -23,9 +23,11 @@ export const Login = () => {
   }
 
   return (
-    <div>
+    <>
+
       <h2>Login</h2>
-      <form className="sign-up-form" onSubmit={login}>
+
+      <form onSubmit={login} className="login-box">
         <input
           placeholder="Email"
           type="email"
@@ -41,8 +43,12 @@ export const Login = () => {
           onChange={e => setPassword(e.target.value)}
         />
 
-        <button>Sign In</button>
+        <button className="button login" type="submit">Login</button>
+        <a className="swap" onClick={() => navigate("/signup")}>Create a new account</a>
+
       </form>
-    </div>
+
+
+    </>
   )
 }

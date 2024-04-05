@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useApi } from "./utils/use_api";
+import { useApi } from "../utils/use_api.js";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setAuthToken } from "./store/application_slice";
-import { useCounter } from "./utils/use_counter";
-import { requireLogin } from "./utils/require_login";
+import { setAuthToken } from "../store/application_slice.js";
+import { useCounter } from "../utils/use_counter.js";
+import { requireLogin } from "../utils/require_login.js";
 
 export const Home = () => {
   requireLogin();

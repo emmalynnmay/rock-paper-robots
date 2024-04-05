@@ -5,9 +5,11 @@ import './index.css'
 import {createHashRouter, RouterProvider} from "react-router-dom";
 import {Provider, useSelector} from 'react-redux';
 import store from './store/store';
-import { Home } from './Home.jsx';
-import { Login } from './Login.jsx';
-import { SignUp } from './SignUp.jsx';
+import { Home } from './routes/Home.jsx';
+import { Login } from './routes/Login.jsx';
+import { SignUp } from './routes/SignUp.jsx';
+import { Collection } from "./routes/Collection.jsx";
+import { TheStore } from "./routes/Store.jsx";
 import { Api, ApiContext } from './utils/api.js';
 
 const router = createHashRouter([
@@ -24,8 +26,16 @@ const router = createHashRouter([
         element: <Login />
       },
       {
-        path: "/sign_up",
+        path: "/signup",
         element: <SignUp />
+      },
+      {
+        path: "/store",
+        element: <TheStore />
+      },
+      {
+        path: "/collection",
+        element: <Collection />
       },
     ]
   }

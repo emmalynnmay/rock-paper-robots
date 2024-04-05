@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useApi } from "./utils/use_api";
+import { useApi } from "../utils/use_api.js";
 import { useDispatch } from "react-redux";
-import { setAuthToken } from "./store/application_slice";
+import { setAuthToken } from "../store/application_slice.js";
 import { useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
@@ -28,37 +28,39 @@ export const SignUp = () => {
   return (
     <div>
       <h2>Sign Up</h2>
-      <form className="sign-up-form" onSubmit={createUser}>
+      <form onSubmit={createUser} className="login-box">
         <input
-          placeholder="First name"
           type="text"
+          placeholder="First Name"
+          required
           value={firstName}
-          required
-          onChange={e => setFirstName(e.target.value)}
+          onChange={(e) => setFirstName(e.target.value)}
         />
         <input
-          placeholder="Last name"
           type="text"
+          placeholder="Last Name"
+          required
           value={lastName}
-          required
-          onChange={e => setLastName(e.target.value)}
+          onChange={(e) => setLastName(e.target.value)}
         />
         <input
+          type="text"
           placeholder="Email"
-          type="email"
-          value={email}
           required
-          onChange={e => setEmail(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          placeholder="Password"
           type="password"
-          value={password}
+          placeholder="Password"
           required
-          onChange={e => setPassword(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button>Create Account</button>
+        <button className="button login" type="submit">Sign Up</button>
+        <a className="swap" onClick={() => navigate("/login")}>Log in to an existing account</a>
+
       </form>
     </div>
   )
