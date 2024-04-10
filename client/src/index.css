@@ -128,6 +128,46 @@ label {
   font-size: 15pt;
 }
 
+.logout-container {
+  width: 200px;
+}
+
+.game-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.choices-container {
+  margin-top: 20px;
+}
+
+.choice-button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: Courier, monospace;
+  background-color: #E3FEF7;
+  border: none;
+}
+
+.result-container {
+  margin-top: 20px;
+}
+
+.play-again-button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #161A30;
+  color: #E3FEF7;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Courier, monospace;
+}
+
+.play-again-button:hover {
+  background-color: #13141c;
+}
 
 
 

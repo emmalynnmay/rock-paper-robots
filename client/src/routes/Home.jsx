@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAuthToken } from "../store/application_slice.js";
 import { useCounter } from "../utils/use_counter.js";
 import { requireLogin } from "../utils/require_login.js";
+import {Player} from "../components/Player.jsx";
 
 export const Home = () => {
   requireLogin();
@@ -29,13 +30,9 @@ export const Home = () => {
 
   return (
     <div>
-      <h1>I am on the home page!</h1>
-      <div>{user && <h1>Welcome, {user.firstName}</h1>}</div>
-      <button onClick={logout}>Logout</button>
-      <h1>{count}</h1>
-      <div>
-        <button onClick={add}>Increment</button>
-        <button>Decrement</button>
+      <Player/>
+      <div className="logout-container">
+        <button onClick={logout} className="button login">Logout</button>
       </div>
     </div>
   )

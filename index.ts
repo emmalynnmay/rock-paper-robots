@@ -10,6 +10,7 @@ import jwt from "jsonwebtoken";
 import { buildUsersController } from "./server/controllers/users_controller";
 import { buildSessionsController } from "./server/controllers/sessions_controller";
 import { buildHomeController } from "./server/controllers/home_controller";
+import { buildPlayController } from "./server/controllers/play_controller";
 import { UsersRepository } from "./server/repositories/users_respository";
 
 
@@ -48,6 +49,7 @@ if (!DEBUG) {
 app.use("/", buildHomeController());
 app.use("/users", buildUsersController(usersRepository));
 app.use("/sessions", buildSessionsController(db));
+app.use("/play", buildPlayController());
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Listening on port ${process.env.PORT || 3000}...`);
