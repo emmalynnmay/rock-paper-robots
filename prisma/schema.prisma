@@ -34,3 +34,28 @@ model Profile {
   updatedAt       DateTime @updatedAt
   user            User?
 }
+
+model Wallet {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  amount    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Item {
+  id           Int          @id @default(autoincrement())
+  price        Float
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  collections  Collection[]
+  collectionId Int?
+}
+
+model Collection {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  items     Item[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

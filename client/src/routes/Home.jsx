@@ -10,18 +10,21 @@ import {Player} from "../components/Player.jsx";
 export const Home = () => {
   requireLogin();
   const [user, setUser] = useState(null);
+  const [balance, setBalance] = useState('Loading...');
   const api = useApi();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {count, add, subtract} = useCounter();
 
-  async function getUser() {
+  async function pullDataForPage() {
     const {user} = await api.get("/users/me");
     setUser(user);
+    const wallet = await api.get("/wallets");
+    setBalance(JSON.stringify(wallet.balance));
   }
 
   useEffect(() => {
-    getUser();
+    pullDataForPage();
   }, [])
 
   function logout() {
@@ -30,6 +33,7 @@ export const Home = () => {
 
   return (
     <div>
+      <p>RoboCash&#8482;: {balance}</p>
       <Player/>
       <div className="logout-container">
         <button onClick={logout} className="button login">Logout</button>

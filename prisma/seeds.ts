@@ -24,7 +24,19 @@ async function main() {
       password_hash: bcrypt.hashSync(process.env.ADMIN_PASSWORD!!),
     }
   })
-  // TODO: put default data in the database
+    await prisma.wallet.upsert({
+        where: {
+            id: 1,
+        },
+        create: {
+            userId: 1,
+            amount: 0,
+        },
+        update: {
+            userId: 1,
+            amount: 0,
+        },
+    })
   console.log(process.env);
 }
 

@@ -12,10 +12,13 @@ import { buildSessionsController } from "./server/controllers/sessions_controlle
 import { buildHomeController } from "./server/controllers/home_controller";
 import { buildPlayController } from "./server/controllers/play_controller";
 import { UsersRepository } from "./server/repositories/users_respository";
+import { WalletsRepository } from "./server/repositories/wallets_repository";
+import {buildWalletController} from "./server/controllers/wallets_controller";
 
 
 const db = new PrismaClient();
 const usersRepository = UsersRepository.getInstance(db);
+const walletsRepository = WalletsRepository.getInstance(db);
 
 dotenv.config();
 
@@ -48,6 +51,7 @@ if (!DEBUG) {
 
 app.use("/", buildHomeController());
 app.use("/users", buildUsersController(usersRepository));
+app.use("/wallets", buildWalletController(walletsRepository));
 app.use("/sessions", buildSessionsController(db));
 app.use("/play", buildPlayController());
 
