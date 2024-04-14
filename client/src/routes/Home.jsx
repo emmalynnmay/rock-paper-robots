@@ -19,6 +19,10 @@ export const Home = () => {
   async function pullDataForPage() {
     const {user} = await api.get("/users/me");
     setUser(user);
+    await updateWallet();
+  }
+
+  async function updateWallet() {
     const wallet = await api.get("/wallets");
     setBalance(JSON.stringify(wallet.balance));
   }
@@ -34,7 +38,7 @@ export const Home = () => {
   return (
     <div>
       <p>RoboCash&#8482;: {balance}</p>
-      <Player/>
+      <Player updateWallet={updateWallet}/>
       <div className="logout-container">
         <button onClick={logout} className="button login">Logout</button>
       </div>

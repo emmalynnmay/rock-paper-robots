@@ -53,7 +53,7 @@ app.use("/", buildHomeController());
 app.use("/users", buildUsersController(usersRepository));
 app.use("/wallets", buildWalletController(walletsRepository));
 app.use("/sessions", buildSessionsController(db));
-app.use("/play", buildPlayController());
+app.use("/play", buildPlayController(walletsRepository));
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Listening on port ${process.env.PORT || 3000}...`);

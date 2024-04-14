@@ -1,12 +1,13 @@
 import { Router } from "express";
 import {authMiddleware} from "../middleware/authentication";
+import { WalletsRepository } from "../repositories/wallets_repository";
 
 const CHOICES = ["Rock", "Paper", "Scissors"];
 
 // /play/...
-export const buildPlayController = () => {
+export const buildPlayController = (walletsRepository: WalletsRepository) => {
     const router = Router();
-    router.post("/", authMiddleware, (req, res) => {
+    router.post("/", authMiddleware, async (req, res) => {
         console.log(req.body);
         const robotChoice = CHOICES[Math.floor(Math.random() * (CHOICES.length))];
         const yourChoice = req.body.action;
@@ -32,6 +33,10 @@ export const buildPlayController = () => {
             } else {
                 result = "You lose...";
             }
+        }
+
+        if (result === "You win!!" && req.user) {
+            await walletsRepository.incrementAmount(Number(req.user.id));
         }
 
         res.json({ result: result, yourChoice: yourChoice, robotChoice: robotChoice });

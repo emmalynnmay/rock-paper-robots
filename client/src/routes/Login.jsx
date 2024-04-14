@@ -18,8 +18,13 @@ export const Login = () => {
       password,
     });
 
+    if (!token) {
+      alert('Email or password incorrect. Please try again.');
+      return;
+    }
+
     dispatch(setAuthToken(token));
-    navigate("/")
+    navigate("/");
   }
 
   return (

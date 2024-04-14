@@ -22,6 +22,15 @@ export const SignUp = () => {
     });
     dispatch(setAuthToken(res.token));
 
+    if (!res) {
+      alert('Your email must be unique. Try signing into an existing account.');
+      return;
+    }
+
+    const wallet = await api.post("/wallets", {
+      userId: res.user.id
+    });
+
     navigate("/");
   }
 

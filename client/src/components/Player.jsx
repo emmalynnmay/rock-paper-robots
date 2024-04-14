@@ -1,21 +1,25 @@
 import { useState } from "react";
 import { useApi } from "../utils/use_api.js";
 
-export const Player = () => {
+export const Player = ({updateWallet}) => {
   const [playerChoice, setPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
   const [result, setResult] = useState(null);
 
-  const choices = ['Rock', 'Paper', 'Scissors'];
   const api = useApi();
 
   const handlePlayerChoice = async (choice) => {
     const result = await api.post("/play", {
       action: choice
     });
+
     setPlayerChoice(choice);
     setComputerChoice(result.robotChoice);
     setResult(result.result);
+
+    if (result.result === "You win!!") {
+      await updateWallet();
+    }
   };
 
   const resetGame = () => {

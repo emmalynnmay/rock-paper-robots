@@ -1,10 +1,16 @@
 import { Router } from "express";
 import { authMiddleware } from "../middleware/authentication";
 import { WalletsRepository } from "../repositories/wallets_repository";
+import jwt from "jsonwebtoken";
 
 // /wallets/...
 export const buildWalletController = (walletsRepository: WalletsRepository) => {
     const router = Router();
+
+    router.post("/", async (req, res) => {
+        const wallet = await walletsRepository.createWallet(Number(req.body.userId));
+        res.json({ wallet });
+    });
 
     router.get("/", authMiddleware, async (req, res) => {
         try {
@@ -24,4 +30,3 @@ export const buildWalletController = (walletsRepository: WalletsRepository) => {
 
     return router;
 }
-
