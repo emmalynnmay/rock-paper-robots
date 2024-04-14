@@ -5,7 +5,7 @@ export const Collection = () => {
 
   return (
     <div>
-      <h1>Collection page</h1>
+      <h2>Your Collection</h2>
     </div>
   )
 }

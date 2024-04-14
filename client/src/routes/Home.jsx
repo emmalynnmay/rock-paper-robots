@@ -29,7 +29,7 @@ export const Home = () => {
 
   useEffect(() => {
     pullDataForPage();
-  }, [])
+  }, []);
 
   function logout() {
     dispatch(setAuthToken(null));
@@ -39,6 +39,8 @@ export const Home = () => {
     <div>
       <p>RoboCash&#8482;: {balance}</p>
       <Player updateWallet={updateWallet}/>
+      <button onClick={() => navigate("/collection")} className="button to-collection">Collection</button>
+      <button onClick={() => navigate("/store")} className="button to-collection">Store</button>
       <div className="logout-container">
         <button onClick={logout} className="button login">Logout</button>
       </div>
