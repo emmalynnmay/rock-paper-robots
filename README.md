@@ -79,3 +79,8 @@ Seed script is found in `prisma/seeds.ts`. Update that script to add default dat
 yarn seed
 # npm run seed
 ```
+
+```bash
+npx prisma migrate dev --name rename-migration --create-only
+npx prisma migrate dev
+```

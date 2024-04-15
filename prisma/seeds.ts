@@ -37,6 +37,17 @@ async function main() {
             amount: 0,
         },
     })
+    await prisma.collection.upsert({
+        where: {
+            id: 1,
+        },
+        create: {
+            userId: 1,
+        },
+        update: {
+            userId: 1,
+        },
+    })
   console.log(process.env);
 }
 

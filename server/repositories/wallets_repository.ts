@@ -1,6 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcryptjs";
-import {CreateUserPayload} from "./users_respository";
 
 export type CreateWalletPayload = {
     userId: Number,

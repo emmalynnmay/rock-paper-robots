@@ -50,6 +50,7 @@ model Item {
   updatedAt    DateTime     @updatedAt
   collections  Collection[]
   collectionId Int?
+  name         String
 }
 
 model Collection {

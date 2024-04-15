@@ -30,6 +30,10 @@ export const SignUp = () => {
     const wallet = await api.post("/wallets", {
       userId: res.user.id
     });
+    
+    const collection = await api.post("/collections", {
+      userId: res.user.id
+    });
 
     navigate("/");
   }
