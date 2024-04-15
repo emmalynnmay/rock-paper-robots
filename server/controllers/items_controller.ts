@@ -18,7 +18,7 @@ export const buildItemsController = (itemsRepository: ItemsRepository) => {
 
     router.post("/", authMiddleware, async (req, res) => {
         try {
-            const purchase = await itemsRepository.buy(req.user?.id, req.body.id);
+            const purchase = await itemsRepository.buy(Number(req.user?.id), req.body.id);
             console.log(purchase);
             res.json({purchase});
         } catch (e) {

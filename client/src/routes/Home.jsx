@@ -6,6 +6,7 @@ import { setAuthToken } from "../store/application_slice.js";
 import { useCounter } from "../utils/use_counter.js";
 import { requireLogin } from "../utils/require_login.js";
 import {Player} from "../components/Player.jsx";
+import coin from "../assets/coin.png";
 
 export const Home = () => {
   requireLogin();
@@ -36,14 +37,13 @@ export const Home = () => {
   }
 
   return (
-    <div>
-      <p>RoboCash&#8482;: {balance}</p>
-      <Player updateWallet={updateWallet}/>
-      <button onClick={() => navigate("/collection")} className="button to-collection">Collection</button>
-      <button onClick={() => navigate("/store")} className="button to-collection">Store</button>
-      <div className="logout-container">
-        <button onClick={logout} className="button login">Logout</button>
+    <>
+      <div className="robocash-container">
+        <p className="robocash">RoboCash&#8482; Balance: {balance}</p>
+        <img src={coin} alt="Coins." className="coins"/>
       </div>
-    </div>
+
+      <Player updateWallet={updateWallet}/>
+    </>
   )
 }

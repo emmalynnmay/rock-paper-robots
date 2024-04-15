@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useApi } from "../utils/use_api.js";
+import rock from "../assets/stone.png";
+import paper from "../assets/paper.png";
+import scissors from "../assets/scissor.png";
 
 export const Player = ({updateWallet}) => {
   const [playerChoice, setPlayerChoice] = useState(null);
@@ -31,9 +34,22 @@ export const Player = ({updateWallet}) => {
   return (
     <div className="game-container">
       <div className="choices-container">
-        <button className="choice-button" onClick={() => handlePlayerChoice('Rock')}>Rock</button>
-        <button className="choice-button" onClick={() => handlePlayerChoice('Paper')}>Paper</button>
-        <button className="choice-button" onClick={() => handlePlayerChoice('Scissors')}>Scissors</button>
+
+        <div className="choice-box" onClick={() => handlePlayerChoice('Rock')}>
+          <label className="choice-label">Rock</label>
+          <img src={rock} alt="Rock." className="choice-icon"/>
+        </div>
+
+        <div className="choice-box" onClick={() => handlePlayerChoice('Paper')}>
+          <label className="choice-label">Paper</label>
+          <img src={paper} alt="Paper." className="choice-icon"/>
+        </div>
+
+        <div className="choice-box" onClick={() => handlePlayerChoice('Scissors')}>
+          <label className="choice-label">Scissors</label>
+          <img src={scissors} alt="Scissors." className="choice-icon"/>
+        </div>
+
       </div>
       {playerChoice && computerChoice && result && (
         <div className="result-container">

@@ -20,11 +20,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-h1 {
-  font-size: 45pt;
-  text-align: center;
-}
-
 h2 {
   font-size: 35pt;
   text-align: center;
@@ -138,7 +133,7 @@ label {
 }
 
 .choices-container {
-  margin-top: 20px;
+  display: flex;
 }
 
 .choice-button {
@@ -182,5 +177,67 @@ label {
   border-radius: 20px;
 }
 
+h1 {
+  font-size: 30pt;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #161A30;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 50px;
+}
+
+nav ul li a:hover {
+  background-color: #13141c;
+}
+
+.robocash {
+  margin-top: 20px;
+}
+
+.coins {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.robocash-container {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  margin-right: 20px;
+  justify-content: center;
+}
+
+.choice-icon {
+  width: 100px;
+}
+
+.choice-label {
+  margin-bottom: 5px;
+}
+
+.choice-box {
+  display: flex;
+  flex-direction: column; /* Stack the image and paragraph vertically */
+  align-items: center;
+
+  flex: 1; /* Equal width for each box */
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 

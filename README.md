@@ -3,6 +3,13 @@ CS 4610 - Final Project
 
 Emma Lynn
 
+## Image Attribution
+
+<a href="https://www.flaticon.com/free-icons/coin" title="coin icons">Coin icons created by kliwir art - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/stone" title="stone icons">Stone icons created by bastian 5 - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/paper" title="paper icons">Paper icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/scissors" title="scissors icons">Scissors icons created by Gulraiz - Flaticon</a>
+
 ## Setup
 ### Prerequisites
 - node
