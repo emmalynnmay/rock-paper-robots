@@ -40,11 +40,13 @@ export const TheStore = () => {
         <img src={coin} alt="Coins." className="coins"/>
       </div>
 
-      {items.map((item) => {
-        return (
-          <Product details={item} key={item.id} purchase={purchase}/>
-        )
-      })}
+      <div className="item-board">
+        {items.map((item) => {
+          return (
+            <Product details={item} key={item.id} purchase={purchase}/>
+          )
+        })}
+      </div>
 
     </div>
   )

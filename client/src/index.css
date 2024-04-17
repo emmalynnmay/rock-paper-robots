@@ -169,14 +169,6 @@ label {
   margin-bottom: 20px;
 }
 
-.product {
-  background-color: #9AC8CD;
-  color: #161A30;
-  padding: 5px;
-  margin: 15px;
-  border-radius: 20px;
-}
-
 h1 {
   font-size: 30pt;
   text-align: center;
@@ -257,6 +249,48 @@ nav ul li a:hover {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 30px;
+}
+
+.item-board {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.product {
+  background-color: #9AC8CD;
+  color: #161A30;
+  padding: 5px;
+  margin: 15px;
+  border-radius: 20px;
+  align-content: center;
+
+  width: calc(50% - 30px);
+  box-sizing: border-box;
+}
+
+.purchase-button {
+  background-color: #161A30;
+  font-family: Courier, monospace;
+  color: #E3FEF7;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-size: 14pt;
+  padding: 10px;
+  display: block;
+  margin: 15px auto;
+}
+
+.purchase-button:hover {
+  background-color: #13141c;
+}
+
+.product-preview {
+  margin: auto;
+  display: block;
+  width: 40%;
 }
 
 
