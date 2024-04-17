@@ -1,15 +1,28 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { useApi } from "../utils/use_api.js";
 import rock from "../assets/stone.png";
 import paper from "../assets/paper.png";
 import scissors from "../assets/scissor.png";
 
+const MESSAGES = ['Game on!', 'Silly humans can never beat me!', 'Prepare for your defeat, mortal', 'Initiating Rock-Paper-Scissors protocol...'];
+
 export const Player = ({updateWallet}) => {
   const [playerChoice, setPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
   const [result, setResult] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
+  const [message, setMessage] = useState('Loading...');
 
   const api = useApi();
+
+  useEffect(() => {
+    setImageUrl(`https://robohash.org/${Date.now()}`);
+    setMessage(pickRobotMessage());
+  }, []);
+
+  function pickRobotMessage() {
+    return MESSAGES[Math.floor(Math.random()*MESSAGES.length)];
+  }
 
   const handlePlayerChoice = async (choice) => {
     const result = await api.post("/play", {
@@ -29,10 +42,20 @@ export const Player = ({updateWallet}) => {
     setPlayerChoice(null);
     setComputerChoice(null);
     setResult(null);
+    setMessage(pickRobotMessage());
+    setImageUrl(`https://robohash.org/${Date.now()}`);
   };
 
   return (
     <div className="game-container">
+
+      <img
+        src={imageUrl}
+        alt="Robot."
+        className="robot"
+      />
+      <p className="robot-message">{message}</p>
+
       <div className="choices-container">
 
         <div className="choice-box" onClick={() => handlePlayerChoice('Rock')}>
@@ -53,10 +76,9 @@ export const Player = ({updateWallet}) => {
       </div>
       {playerChoice && computerChoice && result && (
         <div className="result-container">
-          <p>You chose: {playerChoice}</p>
-          <p>Computer chose: {computerChoice}</p>
+          <p><strong>You chose:</strong> {playerChoice} | <strong>Robot chose:</strong> {computerChoice}</p>
           <p>{result}</p>
-          <button className="play-again-button" onClick={resetGame}>Play again</button>
+          <button className="play-again-button" onClick={resetGame}>Reset</button>
         </div>
       )}
     </div>

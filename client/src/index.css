@@ -240,4 +240,23 @@ nav ul li a:hover {
   margin-bottom: 20px;
 }
 
+.choice-box:hover {
+  border: dashed #161A30;
+}
+
+.robot {
+  margin-top: -80px;
+  width: 15%;
+}
+
+.robot-message {
+  background-color: #13141c;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
 
