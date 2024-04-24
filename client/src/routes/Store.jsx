@@ -29,6 +29,9 @@ export const TheStore = () => {
   async function purchase(item) {
     console.log(`purchasing ${item.name}`);
     alert(`${item.name} has been purchased and added to your collection!`);
+    const result = await api.post("/items", {id: item.id});
+    console.log(result);
+    updateWallet();
   }
 
   return (
