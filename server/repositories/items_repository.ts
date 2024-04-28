@@ -1,5 +1,14 @@
 import { PrismaClient } from "@prisma/client";
 
+interface PurchaseResult {
+    id?: number; // These properties should match the actual return type of db.wallet.update
+    userId?: number;
+    amount?: number;
+    createdAt?: Date;
+    updatedAt?: Date;
+    error?: string; // Add the error property
+}
+
 export class ItemsRepository {
     private db: PrismaClient
     private static instance: ItemsRepository
@@ -15,11 +24,10 @@ export class ItemsRepository {
     }
 
     async getAll() {
-        return this.db.item.findMany();
+        return this.db.item.findMany({include: { collections: true }});
     }
 
     async buy(userId: number, itemId: number) {
-        //TODO: implement
 
         const collection = await this.db.collection.findUnique({
             where: { userId: userId },
@@ -29,6 +37,14 @@ export class ItemsRepository {
         const item = await this.db.item.findUnique({
             where: { id: itemId },
         });
+
+        console.log(item?.price);
+
+        const purchase = await this.deductCost(userId, Number(item?.price));
+        console.log(purchase);
+        if (purchase.error === "Insufficient Funds!") {
+            return {error: "Insufficient Funds!"};
+        }
 
         if (!collection || !item) {
             throw new Error('Collection or Item not found');
@@ -43,22 +59,38 @@ export class ItemsRepository {
             data: { items: { connect: { id: itemId } } }, // Connect the item to the collection
         });
 
-        console.log('Item added to collection:', updatedCollection);
+        //console.log('Item added to collection:', updatedCollection);
 
         return updatedCollection;
+    }
 
-        /*return this.db.collection.update({
+    async deductCost(userId: number, price: number): Promise<PurchaseResult> {
+        console.log(`Charging ${price} for purchase`);
+        const wallet = await this.getByUserId(userId);
+        if (wallet) {
+            const currentAmount = wallet.amount;
+
+            if (currentAmount < price) {
+                return {error: "Insufficient Funds!"};
+            }
+
+            return this.db.wallet.update({
+                where: {
+                    userId: userId
+                },
+                data: {
+                    amount: currentAmount - price
+                }
+            });
+        }
+        return {error: "Purchase failed"};
+    }
+
+    async getByUserId(userId: number) {
+        return this.db.wallet.findFirst({
             where: {
                 userId: userId
             },
-            data: {
-                items: {
-                    id: itemId
-                }
-            },
-            include: {
-                items: true,
-            },
-        });*/
+        });
     }
 }

@@ -9,8 +9,13 @@ export const buildItemsController = (itemsRepository: ItemsRepository) => {
     router.get("/", authMiddleware, async (req, res) => {
         try {
             const items = await itemsRepository.getAll();
-            console.log(items);
-            res.json({items});
+            const itemsIncluded = [];
+            for (let i = 0; i < items.length; i++) {
+                const included = items[i].collections.some(item => item.userId === req.user?.id);
+                items[i].collections = [];
+                itemsIncluded.push(included);
+            }
+            res.json({items, itemsIncluded});
         } catch (e) {
             res.json({ error: e});
         }

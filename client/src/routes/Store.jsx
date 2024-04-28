@@ -10,6 +10,7 @@ export const TheStore = () => {
 
   const [balance, setBalance] = useState('Loading...');
   const [items, setItems] = useState([]);
+  const [included, setIncluded] = useState([]);
 
   useEffect(() => {
     updateWallet();
@@ -23,15 +24,21 @@ export const TheStore = () => {
 
   async function pullProducts() {
     const items = await api.get("/items");
+    setIncluded(items.itemsIncluded);
+    console.log(items.itemsIncluded);
     setItems(items.items);
   }
 
   async function purchase(item) {
-    console.log(`purchasing ${item.name}`);
-    alert(`${item.name} has been purchased and added to your collection!`);
+    console.log(`Attempting to purchase ${item.name}`);
     const result = await api.post("/items", {id: item.id});
-    console.log(result);
-    updateWallet();
+    if (result.purchase.error && result.purchase.error === "Insufficient Funds!") {
+      alert('Purchase failed! Insufficient funds :(');
+    } else {
+      alert(`${item.name} has been purchased and added to your collection!`);
+      pullProducts();
+      updateWallet();
+    }
   }
 
   return (
@@ -44,9 +51,9 @@ export const TheStore = () => {
       </div>
 
       <div className="item-board">
-        {items.map((item) => {
+        {items.map((item, index) => {
           return (
-            <Product details={item} key={item.id} purchase={purchase}/>
+            <Product details={item} key={item.id} owned={included[index]} purchase={purchase}/>
           )
         })}
       </div>
