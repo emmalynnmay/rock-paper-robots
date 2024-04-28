@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAuthToken } from "../store/application_slice.js";
 import { useCounter } from "../utils/use_counter.js";
 import { requireLogin } from "../utils/require_login.js";
+import { deleteModels } from "../utils/delete_models.js";
 import {Player} from "../components/Player.jsx";
 import coin from "../assets/coin.png";
 
 export const Home = () => {
   requireLogin();
+  deleteModels();
   const [user, setUser] = useState(null);
   const [balance, setBalance] = useState('Loading...');
   const api = useApi();

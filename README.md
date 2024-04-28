@@ -10,6 +10,9 @@ Emma Lynn
 <a href="https://www.flaticon.com/free-icons/paper" title="paper icons">Paper icons created by Freepik - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/scissors" title="scissors icons">Scissors icons created by Gulraiz - Flaticon</a>
 
+https://threejs.org/examples/webgl_loader_ply.html
+https://stackoverflow.com/questions/70115194/loading-ply-file-with-three-js-in-react
+
 ## Setup
 ### Prerequisites
 - node
