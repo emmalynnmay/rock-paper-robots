@@ -293,4 +293,8 @@ nav ul li a:hover {
   width: 40%;
 }
 
+.render-container {
+  width: 200px;
+}
+
 

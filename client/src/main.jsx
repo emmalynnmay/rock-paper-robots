@@ -10,6 +10,7 @@ import { Login } from './routes/Login.jsx';
 import { SignUp } from './routes/SignUp.jsx';
 import { Collection } from "./routes/Collection.jsx";
 import { TheStore } from "./routes/Store.jsx";
+import { RenderTest } from "./routes/RenderTest.jsx";
 import { Api, ApiContext } from './utils/api.js';
 
 const router = createHashRouter([
@@ -36,6 +37,10 @@ const router = createHashRouter([
       {
         path: "/collection",
         element: <Collection />
+      },
+      {
+        path: "/render",
+        element: <RenderTest />
       },
     ]
   }
