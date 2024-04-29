@@ -297,4 +297,10 @@ nav ul li a:hover {
   margin-left: 25%;
 }
 
-
+.view {
+  margin: 0.2em;
+  width: 400px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+}

@@ -6,7 +6,7 @@ export const Item = ({details}) => {
   return (
     <div className="product">
       <p>{details.name}</p>
-      <RenderModel/>
+      <RenderModel id={details.id}/>
     </div>
   )
 }

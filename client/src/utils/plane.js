@@ -1,4 +1,3 @@
-import { requireLogin } from "../utils/require_login.js";
 import * as THREE from 'three';
 import { PLYLoader } from 'three/addons/loaders/PLYLoader.js';
 import {useEffect} from "react";
@@ -7,23 +6,18 @@ let container;
 
 let camera, cameraTarget, scene, renderer;
 
-export const RenderModel = ({id}) => {
-  requireLogin();
-
-  useEffect(() => {
-    init(id);
-    animate();
-  }, []);
-
-  return <div id="theContainer" className="render-container"></div>;
+export const plane = () => {
+  const theScene = init();
+  //animate();
+  return theScene;
 }
 
 function init(id) {
 
-  container = document.createElement('div');
-  container.id = `rendering${id}`;
-  container.classList.add('render-container');
-  document.body.appendChild( container );
+  //container = document.createElement('div');
+  //container.id = `rendering${id}`;
+  //container.classList.add('render-container');
+  //document.body.appendChild( container );
 
   camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 1, 15 );
   camera.position.set( 3, 0.15, 3 );
@@ -86,8 +80,9 @@ function init(id) {
 
   renderer.shadowMap.enabled = true;
 
-  container.appendChild( renderer.domElement );
+  //container.appendChild( renderer.domElement );
 
+  return scene;
 }
 
 function addShadowedLight( x, y, z, color, intensity ) {
