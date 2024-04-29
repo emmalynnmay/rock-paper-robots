@@ -1,58 +1,67 @@
 import { useState, useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { View, Preload, OrbitControls, PerspectiveCamera, CameraShake, PivotControls, Environment, Center } from '@react-three/drei'
-import { Plane, Apple, Duck, Candy, Flash, Target } from '../components/Models.jsx';
+import {Cactus, Apple, Duck, Candy, Flash, Target, Strawberry, Penguin, RubberDuck} from '../components/Models.jsx';
 
 export function Test() {
   return (
     <>
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
 
-        <div className="text">
-          Here is text.
+        <div>
 
-          {/*<View className="view scale" style={{height: 300}}>
+          <View className="view" style={{ height: 300 }}>
+            <Common color="lightblue" />
+            <RubberDuck position={[0, -1, 0]} scale={14} />
+            <OrbitControls makeDefault />
+          </View>
+
+          <View className="view" style={{height: 300}}>
             <Common color="lightblue"/>
-            <Plane scale={6} position={[0, -1.6, 0]}/>
+            <Cactus scale={.75} position={[0, -1.0, 0]}/>
+            <CameraShake intensity={1.25} />
             <OrbitControls makeDefault/>
-          </View>*/}
+          </View>
 
-          Here is text.
-
-          <View className="view scale" style={{ height: 300 }}>
+          <View className="view" style={{ height: 300 }}>
             <Common color="lightblue" />
             <Apple position={[0, -1, 0]} scale={14} />
             <OrbitControls makeDefault />
           </View>
 
-          Here is text.
+          <View className="view" style={{ height: 300 }}>
+            <Common color="lightblue" />
+            <Strawberry position={[0, -30, 0]} scale={2} />
+            <OrbitControls makeDefault />
+          </View>
 
-          <View className="view translateY">
+          <View className="view" style={{ height: 300 }}>
+            <Common color="lightblue" />
+            <Penguin position={[0, -20, 0]} scale={10} />
+            <OrbitControls makeDefault />
+          </View>
+
+          <View className="view" style={{height: 300}}>
             <Common color="lightgreen" />
             <Duck scale={2} position={[0, -1.6, 0]} />
             <CameraShake intensity={2} />
           </View>
 
-          Here is text.
-
-          <View className="view scale">
+          <View className="view" style={{height: 300}}>
             <Common color="peachpuff" />
             <Candy scale={3} />
           </View>
 
-          Here is text.
-
-          <View className="view translateX">
+          <View className="view" style={{height: 300}}>
             <Common color="orange" />
             <Flash scale={3} />
           </View>
 
-          <View className="view translateX">
+          <View className="view" style={{height: 300}}>
             <Common color="orange" />
             <Target scale={2} position={[0, -1.6, 0]} />
           </View>
 
-          Here is text.
         </div>
         <Canvas
           style={{ position: 'fixed', top: 0, bottom: 0, left: 0, right: 0, overflow: 'hidden' }}

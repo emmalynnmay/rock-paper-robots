@@ -14,6 +14,9 @@ https://threejs.org/examples/webgl_loader_ply.html
 https://stackoverflow.com/questions/70115194/loading-ply-file-with-three-js-in-react
 https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:12,13
 
+Turbosquid
+* Cactus
+
 ## Setup
 ### Prerequisites
 - node
