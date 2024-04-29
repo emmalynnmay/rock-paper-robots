@@ -261,8 +261,7 @@ nav ul li a:hover {
   background-color: #9AC8CD;
   color: #161A30;
   padding: 5px;
-  margin: 15px;
-  border-radius: 20px;
+  margin: 15px auto;
   align-content: center;
 
   width: calc(50% - 30px);
@@ -298,9 +297,8 @@ nav ul li a:hover {
 }
 
 .view {
-  margin: 0.2em;
-  width: 400px;
   height: 200px;
   display: inline-block;
   overflow: hidden;
+  width: 100%;
 }

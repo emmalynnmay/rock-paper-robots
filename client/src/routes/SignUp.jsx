@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useApi } from "../utils/use_api.js";
 import { useDispatch } from "react-redux";
 import { setAuthToken } from "../store/application_slice.js";
-import { deleteModels } from "../utils/delete_models.js";
 import { useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
@@ -13,7 +12,7 @@ export const SignUp = () => {
   const api = useApi();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  deleteModels();
+
   async function createUser(e) {
     e.preventDefault();
     const res = await api.post("/users", {

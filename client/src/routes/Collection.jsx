@@ -2,6 +2,8 @@ import { requireLogin } from "../utils/require_login.js";
 import {Item} from "../components/Item.jsx";
 import {useApi} from "../utils/use_api.js";
 import {useEffect, useState} from "react";
+import {Preload, View} from "@react-three/drei";
+import {Canvas} from "@react-three/fiber";
 
 export const Collection = () => {
   requireLogin();
@@ -22,11 +24,28 @@ export const Collection = () => {
     <div>
       <h2>Your Collection</h2>
 
-      {items.map((item) => {
+      {/*items.map((item) => {
         return (
           <Item details={item} key={item.id}/>
         )
-      })}
+      })*/}
+
+      <Item details={{name: 'Cactus'}} key={12}/>
+      <Item details={{name: 'Rubber Duck'}} key={17}/>
+      <Item details={{name: 'Strawberry'}} key={18}/>
+      <Item details={{name: 'Duck'}} key={14}/>
+      <Item details={{name: 'Penguin'}} key={16}/>
+      <Item details={{name: 'Lightning'}} key={15}/>
+      <Item details={{name: 'Apple'}} key={11}/>
+      <Item details={{name: 'Candy'}} key={13}/>
+      <Item details={{name: 'Target'}} key={19}/>
+
+      <Canvas
+        style={{ position: 'fixed', top: 0, bottom: 0, left: 0, right: 0, overflow: 'hidden' }}
+        eventSource={document.getElementById('root')}>
+        <View.Port />
+        <Preload all />
+      </Canvas>
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApi } from "../utils/use_api.js";
-import { deleteModels } from "../utils/delete_models.js";
 import { setAuthToken } from "../store/application_slice.js";
 import { useDispatch } from "react-redux";
 
@@ -11,8 +10,6 @@ export const Login = () => {
   const navigate = useNavigate();
   const api = useApi();
   const dispatch = useDispatch();
-
-  deleteModels();
 
   async function login(e) {
     e.preventDefault();

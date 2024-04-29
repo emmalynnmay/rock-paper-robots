@@ -8,6 +8,7 @@ export function Duck(props) {
 
 export function RubberDuck(props) {
   const { scene } = useGLTF('public/models/rubber-duck.glb');
+  useFrame((state, delta) => (scene.rotation.y -= delta));
   return <primitive object={scene} {...props} />
 }
 
@@ -42,7 +43,7 @@ export function Flash(props) {
 
 export function Apple(props) {
   const { scene } = useGLTF('public/models/apple.gltf');
-  useFrame((state, delta) => (scene.rotation.y += delta));
+  useFrame((state, delta) => (scene.rotation.z = scene.rotation.y -= delta));
   return <primitive object={scene} {...props} />
 }
 

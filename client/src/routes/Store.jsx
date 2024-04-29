@@ -1,5 +1,4 @@
 import { requireLogin } from "../utils/require_login.js";
-import { deleteModels } from "../utils/delete_models.js";
 import {useEffect, useState} from "react";
 import {useApi} from "../utils/use_api.js";
 import {Product} from "../components/Product.jsx";
@@ -7,7 +6,6 @@ import coin from "../assets/coin.png";
 
 export const TheStore = () => {
   requireLogin();
-  deleteModels();
   const api = useApi();
 
   const [balance, setBalance] = useState('Loading...');
