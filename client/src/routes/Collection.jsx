@@ -20,6 +20,11 @@ export const Collection = () => {
     setItems(collection.collection.items);
   }
 
+  let emptyMessage = <></>;
+  if (items.length === 0) {
+    emptyMessage = <p>Nothing here yet!</p>;
+  }
+
   return (
     <div>
       <h2>Your Collection</h2>
@@ -29,6 +34,8 @@ export const Collection = () => {
           <Item details={item} key={item.id}/>
         )
       })}
+
+      {emptyMessage}
 
       <Canvas
         style={{ position: 'fixed', top: 0, bottom: 0, left: 0, right: 0, overflow: 'hidden' }}

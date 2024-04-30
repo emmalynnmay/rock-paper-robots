@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
 import { useApi } from "../utils/use_api.js";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setAuthToken } from "../store/application_slice.js";
-import { useCounter } from "../utils/use_counter.js";
 import { requireLogin } from "../utils/require_login.js";
 import {Player} from "../components/Player.jsx";
 import coin from "../assets/coin.png";
@@ -13,7 +9,6 @@ export const Home = () => {
   const [user, setUser] = useState(null);
   const [balance, setBalance] = useState('Loading...');
   const api = useApi();
-  const dispatch = useDispatch();
 
   async function pullDataForPage() {
     const {user} = await api.get("/users/me");

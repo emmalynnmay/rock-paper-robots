@@ -16,7 +16,6 @@ import { ItemsRepository } from "./server/repositories/items_repository";
 import { CollectionsRepository } from "./server/repositories/collections_repository";
 import {buildWalletController} from "./server/controllers/wallets_controller";
 
-
 const db = new PrismaClient();
 const usersRepository = UsersRepository.getInstance(db);
 const walletsRepository = WalletsRepository.getInstance(db);
