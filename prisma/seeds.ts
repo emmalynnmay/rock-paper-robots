@@ -48,7 +48,34 @@ async function main() {
             userId: 1,
         },
     })
+
+    await createItem(1, 'Cactus', 5);
+    await createItem(2, 'Rubber Duck', 7);
+    await createItem(3, 'Strawberry', 3);
+    await createItem(4, 'Duck', 4);
+    await createItem(5, 'Penguin', 6);
+    await createItem(6, 'Lightning', 2);
+    await createItem(7, 'Apple', 3);
+    await createItem(8, 'Candy', 4);
+    await createItem(9, 'Target', 5);
+
   console.log(process.env);
+}
+
+async function createItem(id: number, name: string, price: number) {
+    await prisma.item.upsert({
+        where: {
+            id: id,
+        },
+        create: {
+            name: name,
+            price: price,
+        },
+        update: {
+            name: name,
+            price: price,
+        },
+    })
 }
 
 main()

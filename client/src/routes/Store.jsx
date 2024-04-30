@@ -25,7 +25,7 @@ export const TheStore = () => {
   async function pullProducts() {
     const items = await api.get("/items");
     setIncluded(items.itemsIncluded);
-    console.log(items.itemsIncluded);
+    console.log(items.items);
     setItems(items.items);
   }
 
