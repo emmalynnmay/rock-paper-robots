@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useApi } from "../utils/use_api.js";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setAuthToken } from "../store/application_slice.js";
 import { useCounter } from "../utils/use_counter.js";
 import { requireLogin } from "../utils/require_login.js";
@@ -13,9 +13,7 @@ export const Home = () => {
   const [user, setUser] = useState(null);
   const [balance, setBalance] = useState('Loading...');
   const api = useApi();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {count, add, subtract} = useCounter();
 
   async function pullDataForPage() {
     const {user} = await api.get("/users/me");
@@ -31,10 +29,6 @@ export const Home = () => {
   useEffect(() => {
     pullDataForPage();
   }, []);
-
-  function logout() {
-    dispatch(setAuthToken(null));
-  }
 
   return (
     <>

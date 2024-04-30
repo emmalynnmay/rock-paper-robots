@@ -24,6 +24,16 @@ export const Player = ({updateWallet}) => {
     return MESSAGES[Math.floor(Math.random()*MESSAGES.length)];
   }
 
+  function getImage(choice) {
+    if (choice === "Rock") {
+      return <img src={rock} alt="Rock." className="choice-icon"/>;
+    } else if (choice === "Paper") {
+      return <img src={paper} alt="Paper." className="choice-icon"/>;
+    } else if (choice === "Scissors") {
+      return <img src={scissors} alt="Scissors." className="choice-icon"/>;
+    }
+  }
+
   const handlePlayerChoice = async (choice) => {
     const result = await api.post("/play", {
       action: choice
@@ -60,24 +70,33 @@ export const Player = ({updateWallet}) => {
 
         <div className="choice-box" onClick={() => handlePlayerChoice('Rock')}>
           <label className="choice-label">Rock</label>
-          <img src={rock} alt="Rock." className="choice-icon"/>
         </div>
 
         <div className="choice-box" onClick={() => handlePlayerChoice('Paper')}>
           <label className="choice-label">Paper</label>
-          <img src={paper} alt="Paper." className="choice-icon"/>
         </div>
 
         <div className="choice-box" onClick={() => handlePlayerChoice('Scissors')}>
           <label className="choice-label">Scissors</label>
-          <img src={scissors} alt="Scissors." className="choice-icon"/>
         </div>
 
       </div>
       {playerChoice && computerChoice && result && (
         <div className="result-container">
-          <p><strong>You chose:</strong> {playerChoice} | <strong>Robot chose:</strong> {computerChoice}</p>
-          <p>{result}</p>
+
+          <div className="both-choices-container">
+            <div className="both-choices">
+              <p><strong>You chose:</strong> {playerChoice}</p>
+              {getImage(playerChoice)}
+            </div>
+
+            <div className="both-choices">
+              <p><strong>Robot chose:</strong> {computerChoice}</p>
+              {getImage(computerChoice)}
+            </div>
+          </div>
+
+          <p><strong>{result}</strong></p>
           <button className="play-again-button" onClick={resetGame}>Reset</button>
         </div>
       )}
