@@ -1,33 +1,16 @@
-# Rock Paper Reptiles
-CS 4610 - Final Project
+# Rock Paper Robots
 
-Emma Lynn
+Built by Emma Lynn.
 
-Note: In my original project proposal I said that I would be rendering the models from PLY files. After diving into the options a bit more,
-I decided to switch to GLTF files instead since they are more supported and are the recommended format for using three.js.
+Play rock, paper, scissors with a robot to earn RoboCash™! Use your RoboCash™ to purchase items from the store for your collection. Items in your collection are 3D models rendered on the page with WebGL.
 
-## Image Attribution
+Full stack web application
+* Frontend: React
+    * 3D model rendering: WebGL with Three.js
+* Backend: Express
+* Database: Postgres with Prisma
 
-### Icons
-
-* <a href="https://www.flaticon.com/free-icons/coin" title="coin icons">Coin icons created by kliwir art - Flaticon</a>
-* <a href="https://www.flaticon.com/free-icons/stone" title="stone icons">Stone icons created by bastian 5 - Flaticon</a>
-* <a href="https://www.flaticon.com/free-icons/paper" title="paper icons">Paper icons created by Freepik - Flaticon</a>
-* <a href="https://www.flaticon.com/free-icons/scissors" title="scissors icons">Scissors icons created by Gulraiz - Flaticon</a>
-
-### Models
-* Cactus: Turbosquid
-* Rubber Duck: Turbosquid
-* Strawberry: Turbosquid
-* Duck: https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:8,6
-* Penguin: Turbosquid
-* Lightning: https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:8,6
-* Apple: https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:8,6
-* Candy: https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:8,6
-* Target: https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:8,6
-
-## References
-* Three.js: https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:8,6
+Written for my final project for Modern Web Development at Utah State University.
 
 ## Setup
 ### Prerequisites
@@ -98,8 +81,30 @@ npm run migrate-reset
 ```
 
 ### Seed the Database
-Seed script is found in `prisma/seeds.ts`. Update that script to add default data to your database - Note: seeds should be idempotent... this means that you should be able to run the seeds multiple times and the database should be in the same state regardless of whether its the first or 100th time you run it.
-
+Seed script is found in `prisma/seeds.ts`.
 ```bash
 npm run seed
 ```
+
+## Image Attribution
+
+### Icons
+
+* <a href="https://www.flaticon.com/free-icons/coin" title="coin icons">Coin icons created by kliwir art - Flaticon</a>
+* <a href="https://www.flaticon.com/free-icons/stone" title="stone icons">Stone icons created by bastian 5 - Flaticon</a>
+* <a href="https://www.flaticon.com/free-icons/paper" title="paper icons">Paper icons created by Freepik - Flaticon</a>
+* <a href="https://www.flaticon.com/free-icons/scissors" title="scissors icons">Scissors icons created by Gulraiz - Flaticon</a>
+
+### Models
+* Cactus: Turbosquid
+* Rubber Duck: Turbosquid
+* Strawberry: Turbosquid
+* Duck: https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:8,6
+* Penguin: Turbosquid
+* Lightning: https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:8,6
+* Apple: https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:8,6
+* Candy: https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:8,6
+* Target: https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:8,6
+
+## References
+* Three.js: https://codesandbox.io/p/sandbox/view-tracking-bp6tmc?file=/src/styles.css:8,6
